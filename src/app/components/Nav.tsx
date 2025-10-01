@@ -65,7 +65,7 @@ const Nav = () => {
         <span className="flex items-center justify-center gap-2"><LogoSvg /> Radial..</span>
       </Link>
      
-     <div className="lg:flex hidden items-center gap-4 justify-between ml-20">
+     <div className="lg:flex hidden items-center justify-between ml-20">
         { navItems.map((item, index) => (
           <Link
             key={index}
@@ -74,8 +74,9 @@ const Nav = () => {
             onMouseEnter={() => setHovered(index)}
             onMouseLeave={() => setHovered(null)}
           >
-            {hovered === index && (<motion.span layoutId="hovered-span" className="absolute inset-0 bg-red-500 dark:bg-neutral-800  px-2 py-1 rounded-lg"></motion.span>)}
-            <span className="text-sm relative px-2 py-1 rounded-lg">
+            {hovered === index && (<motion.span layoutId="hovered-span" className="absolute inset-0  px-2 py-1 rounded-lg"></motion.span>)}
+
+            <span className="text-sm relative px-6 py-1 rounded-lg">
               {item.name}
             </span>
           </Link>
@@ -122,12 +123,12 @@ const LogoSvg = () => {
     )
 }
 
-const MenuIcon = () => {
-    const [isOpen, setIsOpen] = useState(false);
-    return(
-        <>
-        <button onClick={() => setIsOpen(prev => !prev)} className="md:hidden">
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-menu"><path d="M3 12h18"></path><path d="M3 6h18"></path><path d="M3 18h18"></path></svg>
-        </button>
-        </> 
-    )}
+// const MenuIcon = () => {
+//     const [isOpen, setIsOpen] = useState(false);
+//     return(
+//         <>
+//         <button onClick={() => setIsOpen(prev => !prev)} className="md:hidden">
+//         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-menu"><path d="M3 12h18"></path><path d="M3 6h18"></path><path d="M3 18h18"></path></svg>
+//         </button>
+//         </> 
+//     )}

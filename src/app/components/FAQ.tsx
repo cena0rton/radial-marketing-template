@@ -49,7 +49,7 @@ const FAQ = () => {
             Frequently Asked Questions
           </h2>
           <p className="text-lg text-neutral-600 max-w-2xl mx-auto">
-            Everything you need to know about Radial. Can't find the answer you're looking for? 
+            Everything you need to know about Radial. Can&apos;t find the answer you&apos;re looking for? 
             <br />
             Please chat with our friendly team.
           </p>

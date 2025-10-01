@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "motion/react";
-import {HowItWorksSection} from "./How";
+import Image from "next/image";
 
 const Features = () => {
   return (
@@ -189,7 +189,7 @@ const Cardright = () => {
       <h1 className="text-2xl font-medium tracking-tight text-neutral-900 mb-3">
         Real-time Analytics
       </h1>
-      <p className="text-neutral-600 text-sm mb-6 -mt-1"> See what's happening in your team... </p>
+      <p className="text-neutral-600 text-sm mb-6 -mt-1"> See what&apos;s happening in your team... </p>
       <div className="relative h-56 mt-16 overflow-hidden mask-b-from-90% mask-t-from-90%">
         <motion.div
           initial={{ y: 0 }}
@@ -252,7 +252,7 @@ const CardBottom = () => {
           transition={{ duration: 0.7, ease: "easeOut" }}
           className="block text-lg md:text-xl font-medium tracking-tight text-neutral-900"
         >
-          "Radial helped me scale X faster than ever before. The real-time analytics <br/>and seamless collaboration features are <span className='text-acc'>game changers</span> for our team."
+          &quot;Radial helped me scale X faster than ever before. The real-time analytics <br/>and seamless collaboration features are <span className='text-acc'>game changers</span> for our team.&quot;
         </motion.span>
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -268,9 +268,11 @@ const CardBottom = () => {
           transition={{ duration: 0.6, delay: 0.5, ease: "easeOut" }}
           className="flex justify-center mt-3"
         >
-          <img
+          <Image
             src="https://upload.wikimedia.org/wikipedia/commons/0/06/Elon_Musk%2C_2018_%28cropped%29.jpg"
             alt="Elon Musk"
+            height={80}
+            width={80}
             className="w-20 h-20 rounded-full border-2 border-neutral-200 object-cover"
           />
         </motion.div>
@@ -368,10 +370,12 @@ const AIAssistantCard = () => {
                 className={`flex ${msg.type === 'user' ? 'justify-end' : 'justify-start'} gap-2`}
               >
                 {msg.type === 'assistant' && (
-                  <img
+                    <Image
                     src={msg.avatar || ""}
                     alt="AI Assistant"
                     className="w-6 h-6 rounded-full flex-shrink-0"
+                    width={80}
+                    height={80}
                   />
                 )}
                 <div className={`max-w-[80%] ${msg.type === 'user' ? 'order-first' : ''}`}>
@@ -396,10 +400,12 @@ const AIAssistantCard = () => {
               animate={{ opacity: 1 }}
               className="flex justify-start gap-2"
             >
-              <img
+              <Image
                 src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=24&h=24&fit=crop&crop=face"
                 alt="AI Assistant"
                 className="w-6 h-6 rounded-full"
+                width={80}
+                height={80}
               />
               <div className="bg-neutral-100 px-3 py-2 rounded-lg">
                 <div className="flex space-x-1">
@@ -471,49 +477,34 @@ const automationTasks = [
 ];
 
 const TaskAutomationCard = () => {
-  const [activeTasks, setActiveTasks] = useState(automationTasks);
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setActiveTasks(prev => {
-        return prev.map(task => {
-          if (task.status === "Setting up" && task.progress < 100) {
-            return { ...task, progress: Math.min(task.progress + 5, 100) };
-          }
-          return task;
-        });
-      });
-    }, 2000);
 
-    return () => clearInterval(interval);
-  }, []);
-
-  return (
-    <div className="bg-neutral-50 p-8 relative overflow-hidden border border-neutral-200  transition-all duration-300">
-      <h1 className="text-2xl font-medium tracking-tight text-neutral-900 mb-3">
+  return(
+    <>
+    <div className="bg-neutral-100 p-8 relative overflow-hidden ">
+      <h1 className="text-2xl font-medium tracking-tight text-neutral-900 mb-2">
         Task Automation
       </h1>
-      <p className="text-neutral-600 text-sm mb-6 -mt-1"> Automate your tasks with AI... </p>
-      <div className="mt-8 gap-4 h-52 grid grid-cols-3 divide-x relative divide-neutral-200">
-        <motion.div
-        initial={{ width: 0 }}
-        animate={{ width: "90%" }}
-        transition={{ duration: 1, ease: "easeInOut" }}
-        className="absolute h-[2px] left-2 w-8 top-1/2 -translate-y-1/2 right- bg-linear-to-r from-neutral-200 to-acc animate-shimmer"></motion.div>
-        
-        {activeTasks.map((task) => (
-          <>
-          <div key={task.id} className="bg-white p-4 border z-10 relative text-base border-neutral-200 shadow-sm">
-            {task.title}
-            <div className="absolute z-0 h-full w-full inset-0 opacity-70 mask-radial-from-50% bg-[radial-gradient(circle_at_1px_1px,rgb(229_229_229)_1px,transparent_0)] bg-[length:10px_10px]" />
+      <p className="text-neutral-600 text-sm mb-6"> Let AI handle the heavy lifting... </p>
+      <div className="bg-white rounded-lg shadow-sm border border-neutral-200 h-80 flex flex-col mask-b-from-90% ">
+        <div className="flex items-center px-4 py-3 border-b border-neutral-200">
+          <div className="flex items-center gap-3">
+            <div className="w-8 h-8 bg-acc rounded-full flex items-center justify-center">
+              <svg className="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.94-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/>
+              </svg>
+            </div>
+            <div>
+              <div className="font-medium text-neutral-900 text-sm">Radial AI</div>
+              <div className="text-xs text-green-500 flex items-center gap-1">
+                <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
+                Online
+              </div>
+            </div>
           </div>
-          
-           </>
-           
-        ))}
-        
+        </div>
       </div>
-      <p className="bg-linear-to-r from-acc via-neutral-100 to-acc text-transparent bg-clip-text animate-shimmer text-sm max-w-sm mt-4 text-left">Save Bussiness Minutes. Let AI Handle tasks so you can focus on up Scaling your Business.</p>
     </div>
-  );
+    </>
+  )
 };
