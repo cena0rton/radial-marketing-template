@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
 "use client";
 
 import React, { useState, useEffect } from "react";
@@ -21,13 +22,13 @@ const Features = () => {
         </p>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 divide-x divide-neutral-200 ">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2  divide-neutral-200 ">
        <Cardleft />
        
        <TaskAutomationCard />
       </div>
       <CardBottom />
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-0 divide-x divide-neutral-200">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-0  divide-neutral-200">
         
        
         <Cardright />
@@ -90,7 +91,7 @@ const Cardleft = () => {
   }, []);
 
   return (
-    <div className="bg-neutral-50 p-8 relative overflow-hidden border border-neutral-200 transition-all duration-300">
+    <div className="bg-neutral-50 p-8 relative overflow-hidden border-t border-r border-neutral-200 transition-all duration-300">
       <h1 className="text-2xl font-medium text-neutral-900 tracking-tight mb-3">
         Smart Issue Tracking
       </h1>
@@ -185,11 +186,11 @@ const Cardright = () => {
   const totalHeight = totalCards * cardHeight + (totalCards - 1) * cardSpacing;
 
   return (
-    <div className="bg-neutral-50 p-8 relative overflow-hidden transition-all duration-300">
+    <div className="bg-neutral-50 p-8 relative overflow-hidden transition-all duration-300 border-r border-neutral-200">
       <h1 className="text-2xl font-medium tracking-tight text-neutral-900 mb-3">
         Real-time Analytics
       </h1>
-      <p className="text-neutral-600 text-sm mb-6 -mt-1"> See what&apos;s happening in your team... </p>
+      <p className="text-neutral-600 text-sm mb-6 -mt-1"> See what's happening in your team... </p>
       <div className="relative h-56 mt-16 overflow-hidden mask-b-from-90% mask-t-from-90%">
         <motion.div
           initial={{ y: 0 }}
@@ -237,7 +238,7 @@ const Cardright = () => {
 
 const CardBottom = () => {
   return (
-    <div className="flex items-center justify-center h-100 mx-auto  border border-neutral-200 hover:shadow-sm shadow-acc/80 transition-all duration-300">
+    <div className="flex items-center justify-center h-100 mx-auto  border border-neutral-200 ">
       <motion.div
         initial="hidden"
         animate="visible"
@@ -252,7 +253,7 @@ const CardBottom = () => {
           transition={{ duration: 0.7, ease: "easeOut" }}
           className="block text-lg md:text-xl font-medium tracking-tight text-neutral-900"
         >
-          &quot;Radial helped me scale X faster than ever before. The real-time analytics <br/>and seamless collaboration features are <span className='text-acc'>game changers</span> for our team.&quot;
+         "Radial helped me scale X faster than ever before. The real-time analytics <br/>and seamless collaboration features are <span className='text-acc'>game changers</span> for our team."
         </motion.span>
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -481,7 +482,7 @@ const TaskAutomationCard = () => {
 
   return(
     <>
-    <div className="bg-neutral-100 p-8 relative overflow-hidden ">
+    <div className="bg-neutral-50 p-8 border-t  border-neutral-200 relative overflow-hidden ">
       <h1 className="text-2xl font-medium tracking-tight text-neutral-900 mb-2">
         Task Automation
       </h1>
@@ -493,7 +494,7 @@ const TaskAutomationCard = () => {
               <svg className="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 24 24">
                 <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.94-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/>
               </svg>
-            </div>
+                </div>
             <div>
               <div className="font-medium text-neutral-900 text-sm">Radial AI</div>
               <div className="text-xs text-green-500 flex items-center gap-1">

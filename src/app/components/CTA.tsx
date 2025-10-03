@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import Link from "next/link";
 import { motion } from "motion/react";
 
 
@@ -90,28 +91,32 @@ const CTA = () => {
                 viewport={{ once: true }}
                 className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start"
               >
-                <button className="group relative px-8 py-4 bg-acc text-white rounded-lg font-medium transition-all duration-200 hover:bg-acc/90 shadow-[0px_0px_0px_1px_rgba(0,0,0,0.06),0px_1px_1px_-0.5px_rgba(0,0,0,0.06),0px_3px_3px_-1.5px_rgba(0,0,0,0.06),_0px_6px_6px_-3px_rgba(0,0,0,0.06),0px_12px_12px_-6px_rgba(0,0,0,0.06),0px_24px_24px_-12px_rgba(0,0,0,0.06)] hover:shadow-[0_0_30px_rgba(0,110,255,0.4)] overflow-hidden">
-                  <span className="relative z-10 flex items-center justify-center gap-2">
-                    Get Started Free
-                    <svg
-                      className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-200"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M13 7l5 5m0 0l-5 5m5-5H6"
-                      />
-                    </svg>
-                  </span>
-                </button>
+                <Link href="/login">
+                  <button className="group relative px-8 py-4 bg-acc text-white rounded-lg font-medium transition-all duration-200 hover:bg-acc/90 shadow-[0px_0px_0px_1px_rgba(0,0,0,0.06),0px_1px_1px_-0.5px_rgba(0,0,0,0.06),0px_3px_3px_-1.5px_rgba(0,0,0,0.06),_0px_6px_6px_-3px_rgba(0,0,0,0.06),0px_12px_12px_-6px_rgba(0,0,0,0.06),0px_24px_24px_-12px_rgba(0,0,0,0.06)] hover:shadow-[0_0_30px_rgba(0,110,255,0.4)] overflow-hidden">
+                    <span className="relative z-10 flex items-center justify-center gap-2">
+                      Get Started Free
+                      <svg
+                        className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-200"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M13 7l5 5m0 0l-5 5m5-5H6"
+                        />
+                      </svg>
+                    </span>
+                  </button>
+                </Link>
 
-                <button className="px-8 py-4 bg-white/10 backdrop-blur-sm text-white rounded-lg font-medium transition-all duration-200 hover:bg-white/20 border border-white/20 hover:border-white/30 shadow-[0px_0px_0px_1px_rgba(0,0,0,0.06),0px_1px_1px_-0.5px_rgba(0,0,0,0.06),0px_3px_3px_-1.5px_rgba(0,0,0,0.06),_0px_6px_6px_-3px_rgba(0,0,0,0.06),0px_12px_12px_-6px_rgba(0,0,0,0.06),0px_24px_24px_-12px_rgba(0,0,0,0.06)]">
-                  Schedule a Demo
-                </button>
+                <Link href="/login">
+                  <button className="px-8 py-4 bg-white/10 backdrop-blur-sm text-white rounded-lg font-medium transition-all duration-200 hover:bg-white/20 border border-white/20 hover:border-white/30 shadow-[0px_0px_0px_1px_rgba(0,0,0,0.06),0px_1px_1px_-0.5px_rgba(0,0,0,0.06),0px_3px_3px_-1.5px_rgba(0,0,0,0.06),_0px_6px_6px_-3px_rgba(0,0,0,0.06),0px_12px_12px_-6px_rgba(0,0,0,0.06),0px_24px_24px_-12px_rgba(0,0,0,0.06)]">
+                    Schedule a Demo
+                  </button>
+                </Link>
               </motion.div>
 
               <motion.div

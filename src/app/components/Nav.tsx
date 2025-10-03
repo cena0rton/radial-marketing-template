@@ -10,6 +10,7 @@ const Nav = () => {
     const { scrollY } = useScroll();
     const [isScrolled, setIsScrolled] = useState(false);
     const [hovered, setHovered] = useState<number | null>(null);
+    const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
     useMotionValueEvent(scrollY, "change", (latest) => {
         if(latest > 20) {
@@ -53,7 +54,7 @@ const Nav = () => {
     }}
      className={` fixed inset-x-0 mx-0 md:mx-auto z-50 w-full md:max-w-7xl pt-6  ${
        isScrolled 
-         ? "bg-neutral-50 dark:bg-neutral-900" 
+         ? "bg-neutral-50 " 
          : "bg-transparent"
      }`}>
     <div className="flex  items-center justify-between px-8 bg-transparent z-50 -mt-6 py-3">
@@ -64,6 +65,23 @@ const Nav = () => {
       >
         <span className="flex items-center justify-center gap-2"><LogoSvg /> Radial..</span>
       </Link>
+     
+     {/* Mobile Menu Button */}
+     <button
+       onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+       className="lg:hidden p-2 text-neutral-900 hover:text-acc transition-colors"
+       aria-label="Toggle menu"
+     >
+       {isMobileMenuOpen ? (
+         <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+         </svg>
+       ) : (
+         <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+         </svg>
+       )}
+     </button>
      
      <div className="lg:flex hidden items-center justify-between ml-20">
         { navItems.map((item, index) => (
@@ -88,11 +106,49 @@ const Nav = () => {
             Login
           </button>
         </Link>
-        <button className="bg-neutral-800 dark:bg-neutral-100 cursor-pointer font-medium hover:bg-neutral-700 dark:hover:bg-neutral-200 text-white dark:text-neutral-900 px-4 py-2 rounded-lg text-sm transition-colors duration-200 shadow-[0px_0px_0px_1px_rgba(0,0,0,0.06),0px_1px_1px_-0.5px_rgba(0,0,0,0.06),0px_3px_3px_-1.5px_rgba(0,0,0,0.06),_0px_6px_6px_-3px_rgba(0,0,0,0.06),0px_12px_12px_-6px_rgba(0,0,0,0.06),0px_24px_24px_-12px_rgba(0,0,0,0.06)]">
-          SignUp
-        </button>
+        <Link href="/login">
+          <button className="bg-neutral-800 dark:bg-neutral-100 cursor-pointer font-medium hover:bg-neutral-700 dark:hover:bg-neutral-200 text-white dark:text-neutral-900 px-4 py-2 rounded-lg text-sm transition-colors duration-200 shadow-[0px_0px_0px_1px_rgba(0,0,0,0.06),0px_1px_1px_-0.5px_rgba(0,0,0,0.06),0px_3px_3px_-1.5px_rgba(0,0,0,0.06),_0px_6px_6px_-3px_rgba(0,0,0,0.06),0px_12px_12px_-6px_rgba(0,0,0,0.06),0px_24px_24px_-12px_rgba(0,0,0,0.06)]">
+            SignUp
+          </button>
+        </Link>
       </div> 
       </div> 
+      
+      {/* Mobile Menu */}
+      {isMobileMenuOpen && (
+        <motion.div
+          initial={{ opacity: 0, height: 0 }}
+          animate={{ opacity: 1, height: "auto" }}
+          exit={{ opacity: 0, height: 0 }}
+          transition={{ duration: 0.3 }}
+          className="lg:hidden bg-white border-t border-neutral-200 overflow-hidden"
+        >
+          <div className="px-8 py-6 space-y-4">
+            {navItems.map((item, index) => (
+              <Link
+                key={index}
+                href={item.href}
+                onClick={() => setIsMobileMenuOpen(false)}
+                className="block text-neutral-900 hover:text-acc transition-colors duration-200 py-2 text-base font-medium"
+              >
+                {item.name}
+              </Link>
+            ))}
+            <div className="pt-4 space-y-3 border-t border-neutral-200">
+              <Link href="/login" className="block w-full" onClick={() => setIsMobileMenuOpen(false)}>
+                <button className="w-full bg-acc/90 cursor-pointer font-medium hover:bg-acc/70 text-white px-4 py-3 rounded-lg text-sm transition-colors duration-200 shadow-md">
+                  Login
+                </button>
+              </Link>
+              <Link href="/login" className="block w-full" onClick={() => setIsMobileMenuOpen(false)}>
+                <button className="w-full bg-neutral-800 cursor-pointer font-medium hover:bg-neutral-700 text-white px-4 py-3 rounded-lg text-sm transition-colors duration-200 shadow-md">
+                  SignUp
+                </button>
+              </Link>
+            </div>
+          </div>
+        </motion.div>
+      )}
       
     </motion.div>
     </AnimatePresence>

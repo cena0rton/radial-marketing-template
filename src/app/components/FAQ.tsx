@@ -49,7 +49,7 @@ const FAQ = () => {
             Frequently Asked Questions
           </h2>
           <p className="text-lg text-neutral-600 max-w-2xl mx-auto">
-            Everything you need to know about Radial. Can&apos;t find the answer you&apos;re looking for? 
+           Can&apos;t find the answer you&apos;re looking for? 
             <br />
             Please chat with our friendly team.
           </p>
@@ -102,7 +102,7 @@ const FAQ = () => {
         </div>
 
         <div className="text-center mt-16">
-          <div className="bg-gradient-to-r from-acc/10 to-blue-500/10 rounded-xl p-8 border border-acc/20">
+          <div className=" rounded-xl p-8 border border-acc/20">
             <h3 className="text-xl font-semibold text-neutral-900 mb-2">
               Still have questions?
             </h3>

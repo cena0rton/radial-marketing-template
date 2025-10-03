@@ -1,5 +1,6 @@
 "use client";
 import { motion } from "motion/react";
+import Link from "next/link";
 import React, { useState } from "react";
 
 const pricingPlans = [
@@ -162,12 +163,14 @@ const Pricing = () => {
                 )}
               </div>
               <div className="flex items-start justify-end mx-auto border-b border-neutral-200 mb-10">
-                <button
-                  className={`flex-1 px-6 py-2 mb-8 mx-auto rounded-lg font-medium transition-colors duration-200 shadow-[0px_0px_0px_1px_rgba(0,0,0,0.06),0px_1px_1px_-0.5px_rgba(0,0,0,0.06),0px_3px_3px_-1.5px_rgba(0,0,0,0.06),_0px_6px_6px_-3px_rgba(0,0,0,0.06),0px_12px_12px_-6px_rgba(0,0,0,0.06),0px_24px_24px_-12px_rgba(0,0,0,0.06)] ${plan.button.style}`}
-                  type="button"
-                >
-                  {plan.button.label}
-                </button>
+                <Link href="/login" className="flex-1">
+                  <button
+                    className={`w-full px-6 py-2 mb-8 mx-auto rounded-lg font-medium transition-colors duration-200 shadow-[0px_0px_0px_1px_rgba(0,0,0,0.06),0px_1px_1px_-0.5px_rgba(0,0,0,0.06),0px_3px_3px_-1.5px_rgba(0,0,0,0.06),_0px_6px_6px_-3px_rgba(0,0,0,0.06),0px_12px_12px_-6px_rgba(0,0,0,0.06),0px_24px_24px_-12px_rgba(0,0,0,0.06)] ${plan.button.style}`}
+                    type="button"
+                  >
+                    {plan.button.label}
+                  </button>
+                </Link>
               </div>
               <ul className="mb-8 space-y-2">
                 {plan.features.map((feature, i) => (

@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
 "use client";
 import React, { useState } from 'react'
 import { motion } from 'motion/react'
@@ -137,7 +138,7 @@ const CardSkeleton = () => {
             "Radial is the best project management tool I've ever used."
           </h2>
           <p className="text-neutral-600 mb-6">
-            - Uday Shetty, CEO of Fella hua Bussiness
+            - Uday Shetty, CEO of Sanjana Airlines
           </p>
           <motion.button
             initial={{ opacity: 0, y: 20 }}
@@ -146,7 +147,7 @@ const CardSkeleton = () => {
             viewport={{ once: true }}
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="bg-neutral-800 hover:bg-neutral-700 text-white px-8 py-4 rounded-lg font-medium transition-colors duration-200 shadow-lg hover:shadow-xl"
+            className="bg-neutral-800 hover:bg-neutral-700 text-white px-8 py-4 rounded-lg font-medium transition-colors duration-200 shadow-lg hover:shadow-xl mb-16"
           >
             Explore All Features
           </motion.button>

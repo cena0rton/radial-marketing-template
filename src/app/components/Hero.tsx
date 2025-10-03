@@ -1,6 +1,7 @@
 'use client'
 import React, { useState } from 'react'
 import Image from 'next/image'
+import Link from 'next/link'
 import { animate, motion, useMotionValue, useMotionValueEvent, useScroll } from 'motion/react'
 import Grad from './ui/gradient'
 import Star from './ui/star'
@@ -47,9 +48,11 @@ const Hero = () => {
 
 
           <div className="flex flex-col md:flex-row items-center gap-6 mt-12 justify-between mx-auto">
-            <button className="bg-neutral-800 cursor-pointer hover:bg-neutral-700 shadow-[0px_0px_0px_1px_rgba(0,0,0,0.06),0px_1px_1px_-0.5px_rgba(0,0,0,0.06),0px_3px_3px_-1.5px_rgba(0,0,0,0.06),_0px_6px_6px_-3px_rgba(0,0,0,0.06),0px_12px_12px_-6px_rgba(0,0,0,0.06),0px_24px_24px_-12px_rgba(0,0,0,0.06)] text-white px-6 py-3 rounded-lg font-medium transition-colors duration-200">
-              Start building
-            </button>
+            <Link href="/login">
+              <button className="bg-neutral-800 cursor-pointer hover:bg-neutral-700 shadow-[0px_0px_0px_1px_rgba(0,0,0,0.06),0px_1px_1px_-0.5px_rgba(0,0,0,0.06),0px_3px_3px_-1.5px_rgba(0,0,0,0.06),_0px_6px_6px_-3px_rgba(0,0,0,0.06),0px_12px_12px_-6px_rgba(0,0,0,0.06),0px_24px_24px_-12px_rgba(0,0,0,0.06)] text-white px-6 py-3 rounded-lg font-medium transition-colors duration-200">
+                Start building
+              </button>
+            </Link>
             <a href="#" className="text-neutral-600 cursor-pointer hover:text-neutral-900 transition-colors duration-200">
               New: Product Intelligence →
             </a>

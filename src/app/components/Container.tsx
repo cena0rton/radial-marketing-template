@@ -2,7 +2,7 @@ import React from 'react'
 
 const Container = ({children ,className}: {children: React.ReactNode, className?: string}   ) => {
   return (
-    <div className={`md:max-w-7xl mx-0 lg:p-0 relative w-full md:mx-auto bg-white z-0 ${className}`}>
+    <div className={`md:max-w-7xl px-2 mx-auto my-0 lg:p-0 relative w-full md:mx-auto bg-white z-0 ${className} overflow-x-hidden`}>
         
         {children}
         <div className="md:block hidden">
